@@ -455,6 +455,7 @@
         .popl-icon {
             display: flex;
         }
+
         .card-container {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -475,6 +476,7 @@
             display: block;
             margin: 15px auto 0 auto;
         }
+
         @media screen and (max-width: 768px) {
             .card-container {
                 width: 90%;
@@ -486,6 +488,13 @@
                 max-width: 300px;
             }
         }
+
+        .nav-logo-img {
+            height: 45px;
+            width: auto;
+            display: block;
+            filter: invert(47%) sepia(85%) saturate(2462%) hue-rotate(341deg) brightness(101%) contrast(101%);
+        }
     </style>
 </head>
 
@@ -493,7 +502,9 @@
     <header class="navbar">
         <div class="container page-header">
             <div class="logo">
-                <a href="#">FSK<span>.</span></a>
+                <a href="#">
+                    <img src="https://i.postimg.cc/wTjfXG7N/Web-Photo-Editor-removebg-preview.png" alt="FSK Logo" class="nav-logo-img">
+                </a>
             </div>
 
             <input type="checkbox" id="click">
