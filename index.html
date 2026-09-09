@@ -455,23 +455,36 @@
         .popl-icon {
             display: flex;
         }
-
-        /* কার্ডের মূল স্টাইলিং */
         .card-container {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             padding: 30px;
             border-radius: 16px;
             width: 100%;
-            max-width: 480px;
+            max-width: 450px;
             box-shadow: var(--shadow-lg);
             text-align: center;
-            margin: auto;
+            margin: 0 auto;
         }
 
-        .card-container h2 {
-            margin-bottom: 15px;
-            color: var(--primary);
+        .qr-img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            margin: 15px auto 0 auto;
+        }
+        @media screen and (max-width: 768px) {
+            .card-container {
+                width: 90%;
+                max-width: 380px;
+                padding: 20px 15px;
+            }
+
+            .qr-img {
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -567,7 +580,7 @@
         <div class="card-container">
             <a href="https://popl.co/profile/jfforhad" target="_blank">
                 <img src="https://i.postimg.cc/ZqJ8kd4k/MD-Jahidul-Islam-Forhad-qrcode-1788876010645-(2).jpg"
-                    alt="Clickable Photo" class="img-w">
+                    alt="Clickable Photo" class="qr-img">
             </a>
         </div>
         <script>
