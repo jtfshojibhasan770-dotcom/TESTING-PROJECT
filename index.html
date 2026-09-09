@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="intro.css">
+    <title>PROJECT </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+        /* Frist project */
+        :root {
+            --primary: #ff5b1a;
+            --primary-hover: #f55c41;
+
+            --bg-main: #fcfcfd;
+            --bg-card: #f4f5f6;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --nav-bg: rgba(252, 252, 253, 0.85);
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+            --shadow-wh: 0 20px 40px -1px white;
+
+        }
+
+        .dark-mode {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --nav-bg: rgba(15, 23, 42, 0.85);
+            --border-color: #334155;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 40px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .img-w {
+            width: 100%;
+            height: 470px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .logo a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: calc(0.2s * var(--navAni));
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+            background: rgba(249, 83, 45, 0.08);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .tab-content.active-tab {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+        }
+
+        #click,
+        .menu {
+            display: none;
+        }
+
+        .mode {
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.6s;
+        }
+
+        .mode i {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+        }
+
+        .mode i:hover {
+            color: var(--primary);
+        }
+
+        .mode input {
+            display: none;
+        }
+
+        .hero-section {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .img-sec {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .image-card {
+            width: 85%;
+            margin: 0 auto;
+            border-radius: 20px;
+            background: var(--bg-card);
+            border-top: 4px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: scaleIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.2s;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .detail {
+            max-width: 600px;
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: fadeRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.3s;
+        }
+
+        .title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            opacity: 0;
+            animation: fadeRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.5s;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.7s;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: calc(0.8s + (0.1s * var(--btnAni)));
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: 2px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(218, 50, 8, 0.932);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(228, 40, 7, 0.932);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            transform: translateY(-3px);
+        }
+
+        .social {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: calc(1s + (0.1s * var(--socialAni)));
+        }
+
+        .social a:hover {
+            color: #fff;
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 25px var(--primary);
+        }
+
+        @keyframes fadeUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeRight {
+            0% {
+                transform: translateX(-40px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            .main-content {
+                gap: 3rem;
+            }
+
+            .title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 4rem;
+            }
+
+            .detail {
+                order: 2;
+                margin: 0 auto;
+            }
+
+            .img-sec {
+                order: 1;
+            }
+
+            .image-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .action-btns {
+                justify-content: center;
+            }
+
+            .social {
+                justify-content: center;
+            }
+
+            .menu {
+                display: block;
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: var(--text-main);
+            }
+
+            nav {
+                position: absolute;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-main);
+                transition: left 0.4s ease;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+            }
+
+            #click:checked~nav {
+                left: 0;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title {
+                font-size: 2.8rem;
+            }
+
+            .action-btns {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .popl-icon {
+            display: flex;
+        }
+
+        /* কার্ডের মূল স্টাইলিং */
+        .card-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            margin: auto;
+        }
+
+        .card-container h2 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container page-header">
+            <div class="logo">
+                <a href="#">FSK<span>.</span></a>
+            </div>
+
+            <input type="checkbox" id="click">
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a class="nav-btn active" onclick="openTab(event, 'home')">Home</a></li>
+                    <li><a class="nav-btn" onclick="openTab(event, 'about')">About</a></li>
+                    <li><a class="nav-btn" onclick="openTab(event, 'skills')">Skills</a></li>
+                    <li><a class="nav-btn" onclick="openTab(event, 'contact')">Contact</a></li>
+                </ul>
+            </nav>
+
+            <label class="mode" aria-label="Toggle Dark Mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+    <div id="home" class="tab-content active-tab">
+        <section class="hero-section container">
+            <div class="main-content">
+                <div class="img-sec">
+                    <div class="image-card">
+                        <img src="https://i.postimg.cc/131WMkMk/FB-IMG-1773083984239-1.jpg"
+                            alt="JAHIDUL ISLAM - Web Developer" class="img-w">
+                    </div>
+                </div>
+
+                <div class="detail">
+                    <h3 class="subtitle">Hi, I'm</h3>
+                    <h1 class="title"><span class="highlight">JAHIDUL</span>ISLAM</h1>
+                    <p class="description">
+                        Welcome
+                    </p>
+
+                    <div class="action-btns">
+                        <a href="https://jtfshojibhasan770-dotcom.github.io/MY-CV/" class="btn btn-primary"
+                            style="--btnAni:1">CV</a>
+                        <a href="https://drive.google.com/uc?export=download&id=1dyP6BSSWOcElcKQdX-lzzjdD5x_gpl08"
+                            class="btn btn-secondary" style="--btnAni:2">DOWNLOAD CV</a>
+                    </div>
+
+                    <div class="social">
+                        <a href="https://popl.co/card/TlUECccX/1/preview?showappcta=false" style="--socialAni:1"
+                            aria-label="popl"><i class="bx bx-link"></i></a>
+                        <a href="https://www.instagram.com/jtfforhad770" style="--socialAni:2" aria-label="Instagram"><i
+                                class='bx bxl-instagram'></i></a>
+                        <a href="https://github.com/jtfshojibhasan770-dotcom" style="--socialAni:3"
+                            aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.facebook.com/mdjahidulislamforhad1258" style="--socialAni:4"
+                            aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="about" class="tab-content container section-box">
+        <h2 class="section-title">About Me</h2>
+        <div class="card-container">
+            <p>I am Jahidul Islam, a dedicated Web Developer with a strong focus on clean design and modern frontend
+                tech stacks. I enjoy building structured web layouts, custom interfaces, and learning full-stack
+                development.</p>
+        </div>
+    </div>
+
+    <div id="skills" class="tab-content container section-box">
+        <h2 class="section-title">My Skills</h2>
+        <div class="card-container">
+            <p><strong>HTML5:</strong> Semantic markup and structural web design.</p><br>
+            <p><strong>CSS3 & Layouts:</strong> Responsive design, Flexbox, Grid, and animations.</p><br>
+            <p><strong>JavaScript:</strong> Interactive web elements and DOM manipulation.</p><br>
+            <p><strong>Git & GitHub:</strong> Version control and project deployment.</p>
+        </div>
+    </div>
+
+    <div id="contact" class="tab-content container section-box">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="card-container">
+            <a href="https://popl.co/profile/jfforhad" target="_blank">
+                <img src="https://i.postimg.cc/ZqJ8kd4k/MD-Jahidul-Islam-Forhad-qrcode-1788876010645-(2).jpg"
+                    alt="Clickable Photo" class="img-w">
+            </a>
+        </div>
+        <script>
+
+            function openTab(evt, tabName) {
+                // ১. আগের সব অ্যাক্টিভ ট্যাবের কন্টেন্ট লুকিয়ে ফেলা
+                const tabContents = document.getElementsByClassName("tab-content");
+                for (let i = 0; i < tabContents.length; i++) {
+                    tabContents[i].classList.remove("active-tab");
+                }
+
+                // ২. মেনু বাটনের অ্যাক্টিভ ব্যাকগ্রাউন্ড সরানো
+                const navBtns = document.getElementsByClassName("nav-btn");
+                for (let i = 0; i < navBtns.length; i++) {
+                    navBtns[i].classList.remove("active");
+                }
+
+                // ৩. সিলেক্ট করা ট্যাবের কন্টেন্ট দেখানো এবং বাটনে active ক্লাস দেওয়া
+                document.getElementById(tabName).classList.add("active-tab");
+                evt.currentTarget.classList.add("active");
+
+                // ৪. মোবাইল মেনু স্বয়ংক্রিয়ভাবে বন্ধ/হাইড করার জন্য (এই অংশটি যোগ করা হয়েছে)
+                const menuCheckbox = document.getElementById("click");
+                if (menuCheckbox) {
+                    menuCheckbox.checked = false; // ক্লিক করার সাথে সাথে মেনু বন্ধ হয়ে যাবে
+                }
+            }
+
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const icon = document.querySelector('.mode i');
+            const body = document.body;
+
+            const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                icon.classList.replace('bxs-moon', 'bxs-sun');
+            }
+
+            darkModeToggle.addEventListener('change', () => {
+                if (darkModeToggle.checked) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                    icon.classList.replace('bxs-moon', 'bxs-sun');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'disabled');
+                    icon.classList.replace('bxs-sun', 'bxs-moon');
+                }
+
+            });
+        </script>
+</body>
+
+</html>
