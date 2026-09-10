@@ -5,18 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT</title>
+
+    <!-- Preconnect for fast resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
+    <!-- HTML এর <head> সেকশনের ভেতরে বসান -->
+<link rel="preload" as="image" href="https://i.postimg.cc/131WMkMk/FB-IMG-1773083984239-1.jpg" fetchpriority="high">
+
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="intro.css">
-    <title>PROJECT </title>
-    <link rel="preload" as="image" href="https://i.postimg.cc/131WMkMk/FB-IMG-1773083984239-1.jpg">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
 
-        /* Frist project */
+    <style>
         :root {
             --primary: #ff5b1a;
             --primary-hover: #f55c41;
-
             --bg-main: #fcfcfd;
             --bg-card: #f4f5f6;
             --text-main: #1e293b;
@@ -26,7 +33,6 @@
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
             --shadow-wh: 0 20px 40px -1px white;
-
         }
 
         .dark-mode {
@@ -117,6 +123,7 @@
             padding: 0.5rem 1rem;
             border-radius: 8px;
             transition: all 0.3s ease;
+            cursor: pointer;
             opacity: 0;
             animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
             animation-delay: calc(0.2s * var(--navAni));
@@ -453,10 +460,6 @@
             }
         }
 
-        .popl-icon {
-            display: flex;
-        }
-
         .card-container {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -504,8 +507,7 @@
         <div class="container page-header">
             <div class="logo">
                 <a href="#">
-                    <img src="https://i.postimg.cc/wTjfXG7N/Web-Photo-Editor-removebg-preview.png" alt="FSK Logo"
-                        class="nav-logo-img">
+                    <img src="https://i.postimg.cc/wTjfXG7N/Web-Photo-Editor-removebg-preview.png" alt="FSK Logo" class="nav-logo-img">
                 </a>
             </div>
 
@@ -518,10 +520,10 @@
 
             <nav>
                 <ul class="nav-links">
-                    <li><a class="nav-btn active" onclick="openTab(event, 'home')">Home</a></li>
-                    <li><a class="nav-btn" onclick="openTab(event, 'about')">About</a></li>
-                    <li><a class="nav-btn" onclick="openTab(event, 'skills')">Skills</a></li>
-                    <li><a class="nav-btn" onclick="openTab(event, 'contact')">Contact</a></li>
+                    <li><a class="nav-btn active" style="--navAni:1" onclick="openTab(event, 'home')">Home</a></li>
+                    <li><a class="nav-btn" style="--navAni:2" onclick="openTab(event, 'about')">About</a></li>
+                    <li><a class="nav-btn" style="--navAni:3" onclick="openTab(event, 'skills')">Skills</a></li>
+                    <li><a class="nav-btn" style="--navAni:4" onclick="openTab(event, 'contact')">Contact</a></li>
                 </ul>
             </nav>
 
@@ -531,51 +533,44 @@
             </label>
         </div>
     </header>
+
     <div id="home" class="tab-content active-tab">
         <section class="hero-section container">
             <div class="main-content">
                 <div class="img-sec">
                     <div class="image-card">
                         <img src="https://i.postimg.cc/131WMkMk/FB-IMG-1773083984239-1.jpg"
-                            alt="JAHIDUL ISLAM - Web Developer" class="img-w" fetchpriority="high" width="400"
-                            height="470">
+                            alt="JAHIDUL ISLAM - Web Developer" class="img-w">
                     </div>
                 </div>
 
                 <div class="detail">
                     <h3 class="subtitle">Hi, I'm</h3>
-                    <h1 class="title"><span class="highlight">JAHIDUL</span>ISLAM</h1>
+                    <h1 class="title"><span class="highlight">JAHIDUL </span>ISLAM</h1>
                     <p class="description">
                         Welcome
                     </p>
 
                     <div class="action-btns">
-                        <a href="https://jtfshojibhasan770-dotcom.github.io/MY-CV/" class="btn btn-primary"
-                            style="--btnAni:1">CV</a>
-                        <a href="https://drive.google.com/uc?export=download&id=1dyP6BSSWOcElcKQdX-lzzjdD5x_gpl08"
-                            class="btn btn-secondary" style="--btnAni:2">DOWNLOAD CV</a>
+                        <a href="https://jtfshojibhasan770-dotcom.github.io/MY-CV/" class="btn btn-primary" style="--btnAni:1">CV</a>
+                        <a href="https://drive.google.com/uc?export=download&id=1dyP6BSSWOcElcKQdX-lzzjdD5x_gpl08" class="btn btn-secondary" style="--btnAni:2">DOWNLOAD CV</a>
                     </div>
 
                     <div class="social">
-                        <a href="https://popl.co/card/TlUECccX/1/preview?showappcta=false" style="--socialAni:1"
-                            aria-label="popl"><i class="bx bx-link"></i></a>
-                        <a href="https://www.instagram.com/jtfforhad770" style="--socialAni:2" aria-label="Instagram"><i
-                                class='bx bxl-instagram'></i></a>
-                        <a href="https://github.com/jtfshojibhasan770-dotcom" style="--socialAni:3"
-                            aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                        <a href="https://www.facebook.com/mdjahidulislamforhad1258" style="--socialAni:4"
-                            aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                        <a href="https://popl.co/card/TlUECccX/1/preview?showappcta=false" style="--socialAni:1" aria-label="popl"><i class="bx bx-link"></i></a>
+                        <a href="https://www.instagram.com/jtfforhad770" style="--socialAni:2" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://github.com/jtfshojibhasan770-dotcom" style="--socialAni:3" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.facebook.com/mdjahidulislamforhad1258" style="--socialAni:4" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
                     </div>
                 </div>
             </div>
         </section>
     </div>
+
     <div id="about" class="tab-content container section-box">
         <h2 class="section-title">About Me</h2>
         <div class="card-container">
-            <p>I am Jahidul Islam, a dedicated Web Developer with a strong focus on clean design and modern frontend
-                tech stacks. I enjoy building structured web layouts, custom interfaces, and learning full-stack
-                development.</p>
+            <p>I am Jahidul Islam, a dedicated Web Developer with a strong focus on clean design and modern frontend tech stacks. I enjoy building structured web layouts, custom interfaces, and learning full-stack development.</p>
         </div>
     </div>
 
@@ -590,63 +585,58 @@
     </div>
 
     <div id="contact" class="tab-content container section-box">
-        <h2 class="section-title"></h2>
+        <h2 class="section-title">Contact</h2>
         <div class="card-container">
             <a href="https://popl.co/profile/jfforhad" target="_blank">
-                <img src="https://i.postimg.cc/ZqJ8kd4k/MD-Jahidul-Islam-Forhad-qrcode-1788876010645-(2).jpg"
-                    alt="Clickable Photo" class="qr-img">
+                <img src="https://i.postimg.cc/ZqJ8kd4k/MD-Jahidul-Islam-Forhad-qrcode-1788876010645-(2).jpg" alt="Clickable Photo" class="qr-img">
             </a>
         </div>
-        <script>
+    </div>
 
-            function openTab(evt, tabName) {
-                // ১. আগের সব অ্যাক্টিভ ট্যাবের কন্টেন্ট লুকিয়ে ফেলা
-                const tabContents = document.getElementsByClassName("tab-content");
-                for (let i = 0; i < tabContents.length; i++) {
-                    tabContents[i].classList.remove("active-tab");
-                }
-
-                // ২. মেনু বাটনের অ্যাক্টিভ ব্যাকগ্রাউন্ড সরানো
-                const navBtns = document.getElementsByClassName("nav-btn");
-                for (let i = 0; i < navBtns.length; i++) {
-                    navBtns[i].classList.remove("active");
-                }
-
-                // ৩. সিলেক্ট করা ট্যাবের কন্টেন্ট দেখানো এবং বাটনে active ক্লাস দেওয়া
-                document.getElementById(tabName).classList.add("active-tab");
-                evt.currentTarget.classList.add("active");
-
-                // ৪. মোবাইল মেনু স্বয়ংক্রিয়ভাবে বন্ধ/হাইড করার জন্য (এই অংশটি যোগ করা হয়েছে)
-                const menuCheckbox = document.getElementById("click");
-                if (menuCheckbox) {
-                    menuCheckbox.checked = false; // ক্লিক করার সাথে সাথে মেনু বন্ধ হয়ে যাবে
-                }
+    <script>
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active-tab");
             }
 
-            const darkModeToggle = document.getElementById('darkModeToggle');
-            const icon = document.querySelector('.mode i');
-            const body = document.body;
+            const navBtns = document.getElementsByClassName("nav-btn");
+            for (let i = 0; i < navBtns.length; i++) {
+                navBtns[i].classList.remove("active");
+            }
 
-            const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-            if (isDarkMode) {
+            document.getElementById(tabName).classList.add("active-tab");
+            evt.currentTarget.classList.add("active");
+
+            const menuCheckbox = document.getElementById("click");
+            if (menuCheckbox) {
+                menuCheckbox.checked = false;
+            }
+        }
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const icon = document.querySelector('.mode i');
+        const body = document.body;
+
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+            icon.classList.replace('bxs-moon', 'bxs-sun');
+        }
+
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
                 body.classList.add('dark-mode');
-                darkModeToggle.checked = true;
+                localStorage.setItem('darkMode', 'enabled');
                 icon.classList.replace('bxs-moon', 'bxs-sun');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+                icon.classList.replace('bxs-sun', 'bxs-moon');
             }
-
-            darkModeToggle.addEventListener('change', () => {
-                if (darkModeToggle.checked) {
-                    body.classList.add('dark-mode');
-                    localStorage.setItem('darkMode', 'enabled');
-                    icon.classList.replace('bxs-moon', 'bxs-sun');
-                } else {
-                    body.classList.remove('dark-mode');
-                    localStorage.setItem('darkMode', 'disabled');
-                    icon.classList.replace('bxs-sun', 'bxs-moon');
-                }
-
-            });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
