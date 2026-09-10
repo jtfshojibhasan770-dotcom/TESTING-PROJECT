@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="intro.css">
     <link rel="preload" as="image" href="https://i.postimg.cc/131WMkMk/FB-IMG-1773083984239-1.jpg">
+    <link rel="stylesheet" href="intro.css">
     <title>PROJECT </title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
@@ -457,44 +457,22 @@
             display: flex;
         }
 
+        /* কার্ডের মূল স্টাইলিং */
         .card-container {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             padding: 30px;
             border-radius: 16px;
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
             box-shadow: var(--shadow-lg);
             text-align: center;
-            margin: 0 auto;
+            margin: auto;
         }
 
-        .qr-img {
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-            margin: 15px auto 0 auto;
-        }
-
-        @media screen and (max-width: 768px) {
-            .card-container {
-                width: 90%;
-                max-width: 380px;
-                padding: 20px 15px;
-            }
-
-            .qr-img {
-                max-width: 300px;
-            }
-        }
-
-        .nav-logo-img {
-            height: 45px;
-            width: auto;
-            display: block;
-            filter: invert(47%) sepia(85%) saturate(2462%) hue-rotate(341deg) brightness(101%) contrast(101%);
+        .card-container h2 {
+            margin-bottom: 15px;
+            color: var(--primary);
         }
     </style>
 </head>
@@ -503,10 +481,7 @@
     <header class="navbar">
         <div class="container page-header">
             <div class="logo">
-                <a href="#">
-                    <img src="https://i.postimg.cc/wTjfXG7N/Web-Photo-Editor-removebg-preview.png" alt="FSK Logo"
-                        class="nav-logo-img">
-                </a>
+                <a href="#">FSK<span>.</span></a>
             </div>
 
             <input type="checkbox" id="click">
@@ -537,7 +512,7 @@
                 <div class="img-sec">
                     <div class="image-card">
                         <img src="https://i.postimg.cc/131WMkMk/FB-IMG-1773083984239-1.jpg"
-                            alt="JAHIDUL ISLAM - Web Developer" class="img-w"fetchpriority="high" width="400"
+                            alt="JAHIDUL ISLAM - Web Developer" class="img-w" fetchpriority="high" width="400"
                             height="470">
                     </div>
                 </div>
@@ -590,11 +565,11 @@
     </div>
 
     <div id="contact" class="tab-content container section-box">
-        <h2 class="section-title"></h2>
+        <h2 class="section-title">Contact Me</h2>
         <div class="card-container">
             <a href="https://popl.co/profile/jfforhad" target="_blank">
                 <img src="https://i.postimg.cc/ZqJ8kd4k/MD-Jahidul-Islam-Forhad-qrcode-1788876010645-(2).jpg"
-                    alt="Clickable Photo" class="qr-img" fetchpriority="high" width="400" height="470">
+                    alt="Clickable Photo" class="img-w">
             </a>
         </div>
         <script>
