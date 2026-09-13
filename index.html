@@ -573,9 +573,10 @@
     <div id="about" class="tab-content container section-box">
         <h2 class="section-title">About Me</h2>
         <div class="card-container">
-            <p>I am Jahidul Islam, a dedicated Web Developer with a strong focus on clean design and modern frontend
-                tech stacks. I enjoy building structured web layouts, custom interfaces, and learning full-stack
-                development.</p>
+            <p>I am Jahidul Islam, an aspiring Web Developer currently building my skills in modern frontend
+                technologies. I enjoy crafting clean, responsive user interfaces and practicing best development
+                standards. Driven by a continuous learning mindset, I am actively working toward becoming a full-stack
+                developer.</p>
         </div>
     </div>
 
@@ -600,26 +601,22 @@
         <script>
 
             function openTab(evt, tabName) {
-                // ১. আগের সব অ্যাক্টিভ ট্যাবের কন্টেন্ট লুকিয়ে ফেলা
                 const tabContents = document.getElementsByClassName("tab-content");
                 for (let i = 0; i < tabContents.length; i++) {
                     tabContents[i].classList.remove("active-tab");
                 }
 
-                // ২. মেনু বাটনের অ্যাক্টিভ ব্যাকগ্রাউন্ড সরানো
                 const navBtns = document.getElementsByClassName("nav-btn");
                 for (let i = 0; i < navBtns.length; i++) {
                     navBtns[i].classList.remove("active");
                 }
 
-                // ৩. সিলেক্ট করা ট্যাবের কন্টেন্ট দেখানো এবং বাটনে active ক্লাস দেওয়া
                 document.getElementById(tabName).classList.add("active-tab");
                 evt.currentTarget.classList.add("active");
 
-                // ৪. মোবাইল মেনু স্বয়ংক্রিয়ভাবে বন্ধ/হাইড করার জন্য (এই অংশটি যোগ করা হয়েছে)
                 const menuCheckbox = document.getElementById("click");
                 if (menuCheckbox) {
-                    menuCheckbox.checked = false; // ক্লিক করার সাথে সাথে মেনু বন্ধ হয়ে যাবে
+                    menuCheckbox.checked = false;
                 }
             }
 
